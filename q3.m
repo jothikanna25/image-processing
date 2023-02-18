@@ -1,0 +1,18 @@
+x=imread('pic.jpg');
+imshow(x);
+title('Original Image');
+se=ones(3,3);
+I=imnoise(x,'salt & pepper',0.5);
+figure;
+imshow(I);
+title('Image with Salt & Pepper Noise');
+figure;
+y=imopen(x,se);
+imshow(y);
+title('Morphologically Filtered Image');
+nscore=niqe(x);
+nscoree=niqe(I);
+nscores=niqe(y);
+fprintf("Image score for orginal image: %0.2f.\n", nscore);
+fprintf("Image score for image with salt&pepper noise: %0.2f.\n", nscoree);
+fprintf("Image score for morphologically filtered image: %0.2f.\n", nscores);
